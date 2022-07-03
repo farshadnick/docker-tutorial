@@ -2,6 +2,7 @@
 FROM golang:alpine
 
 WORKDIR /go/src/app
+RUN go mod init
 COPY main.go .
 RUN go build -o webserver . 
 CMD ["./webserver"]
