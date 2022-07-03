@@ -1,3 +1,5 @@
+#This image sizze is 10 MG
+
 FROM golang:alpine as bulider 
 
 WORKDIR /go/src/app
