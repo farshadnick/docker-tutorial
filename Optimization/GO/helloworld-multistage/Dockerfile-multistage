@@ -1,13 +1,13 @@
-#This image sizze is 10 MG
+#This image sizze is 11.9 MG
 
-FROM golang:alpine as bulider 
+FROM golang:alpine as builder
 
 WORKDIR /go/src/app
 COPY main.go .
 RUN go mod init
 RUN go build -o webserver .
 
-FROM apline 
+FROM alpine
 WORKDIR /app
-COPY --from=builder /go/app/ /app
+COPY --from=builder /go/src/app/ /app
 CMD ["./webserver"]
