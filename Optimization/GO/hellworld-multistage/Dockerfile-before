@@ -1,3 +1,4 @@
+#This image size is 719MB
 FROM golang:1.8
 
 WORKDIR /go/src/app
