@@ -1,0 +1,10 @@
+FROM golang:alpine as bulider 
+
+WORKDIR /go/src/app
+COPY main.go .
+RUN go build -o webserver .
+
+FROM apline 
+WORKDIR /app
+COPY --from=builder /go/app/ /app
+CMD ["./webserver"]
