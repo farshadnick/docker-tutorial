@@ -1,0 +1,14 @@
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    restart: always
+    volumes:
+      - ./healthcheck.sh:/bin/healthcheck.sh
+    healthcheck:
+      test: ['CMD', '/bin/healthcheck.sh']
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    ports:
+      - '80:80'
