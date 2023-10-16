@@ -1,4 +1,4 @@
-#This image sizze is 11.9 MG
+#This image size is 11.9 MG
 
 FROM golang:alpine as builder
 
