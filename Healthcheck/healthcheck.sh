@@ -1,16 +1,7 @@
-#!/bin/bash
+#!/bin/sh
 
-# Define the URL to check
-URL="http://localhost/"
+URL=http://localhost/
 
-# Make an HTTP GET request and store the response
-RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" "$URL")
+RESPONSE=$(curl -s -o /dev/null -w '%{http_code}\n' "$URL")
 
-# Check the HTTP response code
-if [ "$RESPONSE" == "200" ]; then
-    # Server is healthy
-    exit 0
-else
-    # Server is unhealthy
-    exit 1
-fi
+[ "$RESPONSE" = "200" ] && exit 0 || exit 1
